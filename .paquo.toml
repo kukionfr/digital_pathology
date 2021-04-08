@@ -2,7 +2,7 @@
 # ===========================
 # format: TOML
 qupath_dir = "C:\\Users\\kyuha\\AppData\\Local\\QuPath-0.2.3"
-qupath_search_dirs = [ "/opt", "/Applications", "C:/Users/kyuha/AppData/Local", "/usr/local", "~/Applications", "~/AppData/Local", "~",]
+qupath_search_dirs = [ "/opt", "/Applications", "c:/Program Files", "/usr/local", "~/Applications", "~/AppData/Local", "~",]
 qupath_search_dir_regex = "(?i)qupath.*"
 qupath_search_conda = true
 qupath_prefer_conda = true
