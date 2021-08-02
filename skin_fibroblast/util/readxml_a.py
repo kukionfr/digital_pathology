@@ -22,17 +22,23 @@ def readxml(xml_path):
     for Annotation in root.iter('Annotation'):
         for Attrib in Annotation.iter('Attribute'):
             classlut.append(Attrib.attrib.get('Name'))
-    classlut = sorted(classlut)
+    classluts = sorted(classlut)
 
     LUT = ['corneum', 'basale', 'hairroot', 'hairfollicle', 'smoothmuscle', 'oil', 'sweat', 'nerve', 'bloodvessel',
            'collagen', 'fat', 'white', 'noisebio', 'noisephy']
-    LUT = sorted(LUT)
+
+    LUT = ['collagen','non-collagen','tissue','epidermis']
+    LUTs = sorted(LUT)
+
+    LUT2 = ['collagen', 'tissue', 'epidermis']
+    LUTs2 = sorted(LUT2)
 
 
-    if not classlut==LUT:
-        print(classlut)
-        print('check name')
-        return classlut,None
+    if not classluts==LUTs:
+        if not classluts==LUTs2:
+            print(classluts)
+            print('check name')
+            return classluts,None
 
 
     for idx, Annotation in enumerate(root.iter('Annotation')):
@@ -59,6 +65,6 @@ def readxml(xml_path):
     io.savemat(xml_path.replace('xml','mat'),mdict=mdict)
     return classlut,pd.DataFrame(mdict)
 
-# src = r'\\kukissd\Kyu_Sync\Research\Active\Aging_organized\svs\svs_back'
-# [readxml(os.path.join(src,xml_path)) for xml_path in os.listdir(src) if xml_path.endswith('xml') ]
+src = r'\\10.162.80.6\Kyu_Sync\Research\Active\Aging_organized\svs\svs_back'
+[readxml(os.path.join(src,xml_path)) for xml_path in os.listdir(src) if xml_path.endswith('xml') ]
 # [readxml(os.path.join(src,xml_path)) for xml_path in os.listdir(src) if xml_path.endswith('xml') and xml_path.startswith('wm')]
